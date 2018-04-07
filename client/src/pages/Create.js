@@ -22,7 +22,28 @@ class Create extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    // this.setState({ username: "", email: "", phone: "", occupation: "", comments: "" });
     console.log("username: " + this.state.username)
+    /*var self = this;
+    fetch('http://localhost:3001/api/submit', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: {
+        username: this.state.username,
+        email: this.state.email,
+        phone: this.state.phone,
+        occupation: this.state.occupation,
+        comments: this.state.comments
+      }
+    })
+    .then(function(response){
+     console.log(response)
+    }).catch(function(err) {
+      console.log(err)
+    })*/
     axios.post('http://localhost:3001/api/submit', {
       username: this.state.username,
       email: this.state.email,
