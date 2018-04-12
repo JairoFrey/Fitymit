@@ -5,23 +5,27 @@
 
 module.exports = function(sequelize, DataTypes) {
   var Profile = sequelize.define("Profile", {
-    username: {
+    firstName: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    email: {
+    lastName: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    phone: {
+    location: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    occupation: {
+    headline: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    comments: {
+    pictureUrl: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    industry: {
       type: DataTypes.STRING,
       allowNull: false
     },

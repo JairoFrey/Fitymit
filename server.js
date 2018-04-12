@@ -27,6 +27,19 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser())
 
+app.get('/profiledata', function (req, res) {
+  if (req.query.uid) {
+    console.log(req.query.uid)
+  getData(req.query.uid, function (record) {
+      res.send(record);
+      console.log("profiledata ", req.query);
+  });
+  }
+  else {
+    console.log("error")
+    res.send("error")
+  }})
+
 
 app.post("/api/submit", function(req, res){
  console.log(req.body)
@@ -100,7 +113,7 @@ function handshake(code, ores) {
           //once the access token is received store in DB
           insertTodb(JSON.parse(data), function (id) {
               //need to find better way and proper authetication for the user
-              ores.redirect('http://localhost:3000/auth/' + id);
+              ores.redirect('http://localhost:3000/auth/?uid=' + id);
           });
       });
       req.on('error', function (e) {
@@ -184,14 +197,7 @@ function findfromdb(uid, callback) {
 }
 
 
-app.get('/profiledata', function (req, res) {
-  console.log(req.query.uid)
-  getData(req.query.uid, function (record) {
-      res.send(record);
-      console.log("profiledata ", req.query);
-  });
 
-})
 // listen on port 3001
 var port = process.env.PORT || 3001;
 db.sequelize.sync().then(function() {
