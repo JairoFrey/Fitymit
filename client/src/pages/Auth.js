@@ -54,7 +54,8 @@ class Auth extends React.Component{
         })
         .then(function (response) {
           console.log(response);
-          alert("Your profile will be reviewed")
+          alert("Your profile will be reviewed");
+          window.location.replace("http://localhost:3000/")
         })  
         .catch(function (error) {
           console.log(error);
@@ -94,4 +95,3 @@ class Auth extends React.Component{
 }
 
 export default Auth;
-
