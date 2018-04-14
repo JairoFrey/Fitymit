@@ -14,7 +14,6 @@ class Auth extends React.Component{
         super(props);
         this.state = {firstName:"FN", headline:"Title"};
         this.handleSubmit = this.handleSubmit.bind(this);
-
     }
     componentWillMount(){
         const params = queryString.parse(this.props.location.search);
@@ -32,6 +31,7 @@ class Auth extends React.Component{
                 headline : response.data.headline,
                 pictureUrl : response.data.pictureUrl,
                 industry  : response.data.industry,
+                email : response.data.emailAdress,
             };
             this.setState(newState)
             console.log(response);
@@ -49,18 +49,30 @@ class Auth extends React.Component{
             location: this.state.location,
             industry: this.state.industry,
             headline: this.state.headline,
-            pictureUrl: this.state.pictureUrl
+            pictureUrl: this.state.pictureUrl,
+            email: this.state.email
         })
         .then(function (response) {
           console.log(response);
-        })
+          alert("Your profile will be reviewed")
+        })  
         .catch(function (error) {
           console.log(error);
         });
       }
 
+      handleInputChange(e) {
+        // Pull the name and value properties off of the event.target (the element which triggered the event)
+        const { name, value } = e.target;
+    
+        // Set the state for the appropriate input field
+        this.setState({
+          [name]: value
+        });
+      }
 
-    render(){
+
+    render(){   
 
         return (
             <div>
@@ -73,11 +85,13 @@ class Auth extends React.Component{
                     <li>Industry: {this.state.industry}</li>
                     <li>Headline: {this.state.headline}</li>
                 </ul>
-
+        
                 <input type="submit" onClick={this.handleSubmit} />
+                <a href="http://localhost:3000/create"><button>Cancel</button></a>
             </div>
         )
     }
 }
 
 export default Auth;
+
