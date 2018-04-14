@@ -35,6 +35,7 @@ class Create extends Component {
     .then(function (response) {
       console.log(response);
       alert("Your profile will be reviewed")
+      window.location.replace("http://localhost:3000/")
     })
     .catch(function (error) {
       console.log(error);
