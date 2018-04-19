@@ -1,6 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import { Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button, Row, Col, ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import Contact from "../components/Contact"
 
 //class dropDown makes the drop down button work properly
   export default class dropDown extends React.Component {
@@ -15,17 +16,19 @@ import { Card, CardImg, CardText, CardBody,
   
     toggle() {
       this.setState({
-        dropdownOpen: !this.state.dropdownOpen
+        dropdownOpen: !this.state.dropdownOpen  
       });
     }
   //renders the page
     render() {
       return (
-      <div>      
+      <div>     
         <h1 className="text-center"
             style={{ fontSize: 75, padding: 150 }}
         >Meet a Mentor!</h1>
-        <br></br><br></br><br></br>
+        <br></br><br></br>
+        <Contact />
+        <br></br>
         <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
           <DropdownToggle caret size="md"
               style={{ marginLeft:10 }}
@@ -153,5 +156,3 @@ import { Card, CardImg, CardText, CardBody,
     );
   }
 }
-
-

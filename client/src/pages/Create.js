@@ -1,4 +1,4 @@
-import React, { Component} from "react";
+import React, { Component } from "react";
 import Container from "../components/Container";
 import axios from 'axios';
 import Login from './Login';
@@ -34,8 +34,6 @@ class Create extends Component {
     })
     .then(function (response) {
       console.log(response);
-      alert("Your profile will be reviewed")
-      window.location.replace("http://localhost:3000/")
     })
     .catch(function (error) {
       console.log(error);
@@ -47,29 +45,14 @@ class Create extends Component {
       <Container style={{ minHeight: "80%" }}>  
         <h1 className="text-center">Become a Mentor</h1>
         <form>
-          <fieldset>
-            <legend>Please Enter Your Information</legend>
-            <div class="form-group row">
-              <label>firstName<input type = "text" name = "firstName" placeholder = "Input Your Name" onChange={this.handleInputChange} value={this.state.firstName} /></label>
-            </div>
-            <div class="form-group row">
-              <label>lastName<input type = "text" name = "lastName" placeholder = "Input Your lastName" onChange={this.handleInputChange} value={this.state.lastName}/></label>
-            </div>      
-            <div class="form-group row">
-              <label>location<input type = "text" name = "location" placeholder = "Input Your location Number" onChange={this.handleInputChange} value={this.state.location}/></label>
-            </div>
-            <div class="form-group row">
-              <label>industry<input type = "text" name = "industry" placeholder = "Input Your Job Title" onChange={this.handleInputChange} value={this.state.industry}/></label>
-            </div>
-            <div class="form-group row">
-              <label>headline<input type = "text" name = "headline" placeholder = "Please write a short bio" onChange={this.handleInputChange} value={this.state.headline}/></label>
-            </div>
-            <div class="form-group row">
-              <label>pictureUrl<input type = "text" name = "pictureUrl" placeholder = "Please write a short bio" onChange={this.handleInputChange} value={this.state.pictureUrl}/></label>
-            </div>
-            <input type="submit" onClick={this.handleSubmit} /> 
-            </fieldset>
-            <Login />
+        <label>firstName<input type = "text" name = "firstName" placeholder = "Input Your Name" onChange={this.handleInputChange} value={this.state.firstName} /></label>
+        <label>lastName<input type = "text" name = "lastName" placeholder = "Input Your lastName" onChange={this.handleInputChange} value={this.state.lastName}/></label>
+        <label>location<input type = "text" name = "location" placeholder = "Input Your location Number" onChange={this.handleInputChange} value={this.state.location}/></label>
+        <label>industry<input type = "text" name = "industry" placeholder = "Input Your Job Title" onChange={this.handleInputChange} value={this.state.industry}/></label>
+        <label>headline<input type = "text" name = "headline" placeholder = "Please write a short bio" onChange={this.handleInputChange} value={this.state.headline}/></label>
+        <label>pictureUrl<input type = "text" name = "pictureUrl" placeholder = "Please write a short bio" onChange={this.handleInputChange} value={this.state.pictureUrl}/></label>
+        <input type="submit" onClick={this.handleSubmit} />
+        <Login />
         </form>
       </Container>
     );
