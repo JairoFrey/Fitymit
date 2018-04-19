@@ -51,11 +51,13 @@ app.post("/api/submit", function(req, res){
    });
 })
 
-app.get("/api/submit", function(req, res){
-  console.log("hi")
-  res.send("hi")
+app.get("/api/getusers", function(req, res){
+  console.log("profiles")
+  db.Profile.findAll()
+  .then(function(data){
+  res.json(data)
+  })
 })
-
 
 app.get('/auth', function (req, res) {
   console.log("hello")
